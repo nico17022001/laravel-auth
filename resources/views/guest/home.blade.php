@@ -13,6 +13,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('register')}}">Registrati</a>
                 </li>
+                @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('adminposts.index')}}">Posts</a>
+                </li>
+                @endauth
             </ul>
         </div>
     </nav>
