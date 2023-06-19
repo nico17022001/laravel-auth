@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    ciao
+    Sei loggato correttamente torna alla home per procedere
 </div>
 @endsection

@@ -21,9 +21,8 @@
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
                     <td>{{$post->date}}</td>
-                    <td><a href="#" class="btn btn-success"><i class="fa-regular fa-eye"></i></a></td>
+                    <td><a href="{{route('adminposts.show',$post)}}" class="btn btn-success"><i class="fa-regular fa-eye"></i></a></td>
                 </tr>
-
                 @endforeach
             </tbody>
         </table>
