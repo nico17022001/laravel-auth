@@ -6,7 +6,7 @@
             Creazione nuovo post
         </h2>
 
-        <form action="{{route('adminposts.store')}}" method="POST">
+        <form action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="mb-3">
@@ -30,6 +30,16 @@
                 cols="30"
                 rows="10"
                 >{{old('title')}}</textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Aggungi un immagine</label>
+                <input
+                id="image"
+                name="image"
+                class="form-control"
+                type="file"
+                >
             </div>
 
             <button type="submit" class="btn btn-success">Crea</button>

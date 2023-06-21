@@ -20,7 +20,7 @@ use App\Http\Controllers\Admin\PostController;
 Route::get('/',[PageController::class,'index'])->name('home');
 
 Route::middleware(['auth', 'verified'])
-    ->name('admin')
+    ->name('admin.')
     ->prefix('admin')
     ->group(function(){
         Route::get('/', [DashbordController::class,'index'])->name('home');

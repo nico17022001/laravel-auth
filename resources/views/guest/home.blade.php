@@ -15,11 +15,11 @@
                 </li>
                 @auth
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('adminposts.index')}}">Posts</a>
+                    <a class="nav-link" href="{{route('admin.posts.index')}}">Posts</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('adminposts.create')}}">Crea nuovo post</a>
+                    <a class="nav-link" href="{{route('admin.posts.create')}}">Crea nuovo post</a>
                 </li>
                 @endauth
             </ul>

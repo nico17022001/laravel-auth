@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -39,9 +40,15 @@ class PostController extends Controller
     {
         $form_data = $request->all();
 
+        if(array_key_exists('image',$form_data)){
+            $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
+            $form_data['image_path'] = Storage::put('uploads',$form_data['image']);
+        }
+
+        $form_data['slug'] = Post::generateSlug($form_data['title']);
+        $form_data['date'] = date('Y-m-d');
+
         $new_post = new Post();
-        $new_post->slug = Post::generateSlug($form_data['title']);
-        $new_post->data = date('Y-m-d');
         $new_post->fill($form_data);
         $new_post->save();
 

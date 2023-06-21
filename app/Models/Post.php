@@ -14,7 +14,9 @@ class Post extends Model
         'title',
         'slug',
         'description',
-        'date'
+        'date',
+        'image_path',
+        'image_orginal_name'
     ];
 
     public static function generateSlug($str){
