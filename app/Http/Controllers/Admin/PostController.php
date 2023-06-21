@@ -42,7 +42,8 @@ class PostController extends Controller
 
         if(array_key_exists('image',$form_data)){
             $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
-            $form_data['image_path'] = Storage::put('uploads',$form_data['image']);
+            $form_data['image_path'] = Storage::put('storage', $form_data['image']);
+
         }
 
         $form_data['slug'] = Post::generateSlug($form_data['title']);

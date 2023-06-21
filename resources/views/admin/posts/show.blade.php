@@ -7,5 +7,9 @@
         </h2>
 
         <span>{{$post->description}}</span>
+
+        <div>
+            <img src="{{asset($post->image_path) }}" alt="{{$post->title}}">
+        </div>
     </div>
 @endsection
