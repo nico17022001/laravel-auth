@@ -27,7 +27,10 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $title = 'Creazione di un nuovo post';
+        $method = 'PUT';
+        $route = 'admin.post.store';
+        return view('admin.posts.create',compact('title','method','route'));
     }
 
     /**
@@ -73,9 +76,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        $title = "Modifica di :" . $post->title;
+        $method = 'PUT';
+        $route = 'admin.post.store';
+        return view('admin.posts.create', compact('title','method','route'));
     }
 
     /**
@@ -96,8 +102,13 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        if($post->image_path){
+            Storage::disk('public')->delete($post->image_path);
+        }
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('deleted','Post eliminato correttamente');
     }
 }

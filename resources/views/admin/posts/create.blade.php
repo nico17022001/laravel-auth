@@ -3,11 +3,12 @@
 @section('content')
     <div class="contrainer p-5">
         <h2 class="my-4">
-            Creazione nuovo post
+            {{$title}}
         </h2>
 
         <form action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('{{$method}}')
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
