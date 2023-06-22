@@ -6,16 +6,16 @@
             {{$title}}
         </h2>
 
-        <form action="{{route('admin.posts.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{$post->id === null ? route('admin.posts.store') : route('admin.posts.edit')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('{{$method}}')
+            @method($method)
 
             <div class="mb-3">
                 <label for="title" class="form-label">Titolo</label>
                 <input
                 id="title"
                 name="title"
-                value="{{old('title')}}"
+                value="{{old('title') ? old('title') : $post->title}}"
                 class="form-control"
                 placeholder=Titolo
                 type="text"
@@ -26,7 +26,7 @@
                 <label for="title" class="form-label">Descrizione</label>
                 <textarea
                 class="form-control "
-                name=""
+                name="text"
                 id="text"
                 cols="30"
                 rows="10"

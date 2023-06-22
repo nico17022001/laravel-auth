@@ -21,6 +21,7 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Categoria</th>
                 <th scope="col">Data</th>
                 <th scope="col">Informazioni</th>
             </tr>
@@ -30,6 +31,7 @@
                 <tr>
                     <th scope="row">{{$post->id}}</th>
                     <td>{{$post->title}}</td>
+                    <td><span class="badge text-bg-primary">{{$post->category?->name}}</span></td>
                     <td>{{$post->date}}</td>
                     <td>
                         <a href="{{route('admin.posts.show',$post)}}" class="btn btn-success"><i class="fa-regular fa-eye"></i></a>

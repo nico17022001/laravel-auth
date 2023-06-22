@@ -19,6 +19,10 @@ class Post extends Model
         'image_orginal_name'
     ];
 
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
     public static function generateSlug($str){
         $slug = Str::slug($str, '-');
         $original_slug = $slug;
